@@ -1,5 +1,6 @@
 // Clase base: Animal
-class Animal {
+class Animal
+{
     // Atributo de la clase Animal
     String nombre;
 
@@ -45,6 +46,16 @@ class Perro extends Animal {
             System.out.println("El perro " + sonido + ".");
         }
     }
+
+    @Override
+    public boolean equals(Object anObject) {
+        return nombre.equals(anObject);
+    }
+
+    @Override
+    public int hashCode() {
+        return nombre.hashCode();
+    }
 }
 
 // Clase derivada que sobrescribe el método de la clase base
@@ -65,33 +76,41 @@ public class Main {
     public static void main(String[] args) {
         // Creación de un objeto de tipo Animal
         Animal animal = new Animal("Animal Genérico");
-        animal.mostrarNombre(); // Salida: El nombre del animal es: Animal Genérico
-        animal.hacerSonido();  // Salida: El animal hace un sonido.
+        animal.mostrarNombre();
+        animal.hacerSonido();
 
         // Sobrecarga de método en la clase Animal
-        animal.hacerSonido(3); // Salida: El animal hace un sonido. (3 veces)
+        animal.hacerSonido(3);
 
         // Creación de un objeto de tipo Perro
         Perro perro = new Perro("Rex");
-        perro.mostrarNombre(); // Salida: El nombre del animal es: Rex
-        perro.hacerSonido(); // Salida: El perro ladra.
+        Perro perro2 = new Perro("Rex");
+
+        //Mismo hashCode
+        System.out.println(perro.hashCode());
+        System.out.println(perro2.hashCode());
+
+        System.out.println("Es igual :"+perro.equals(perro2));
+
+        perro.mostrarNombre();
+        perro.hacerSonido();
 
         // Sobrecarga de método en la clase Perro
         perro.hacerSonido(2, "ladra"); // Salida: El perro ladra. (2 veces)
 
         // Creación de un objeto de tipo Gato
         Gato gato = new Gato("Miau");
-        gato.mostrarNombre(); // Salida: El nombre del animal es: Miau
-        gato.hacerSonido();  // Salida: El gato maúlla.
+        gato.mostrarNombre();
+        gato.hacerSonido();
 
         // Polimorfismo: Usando la referencia de tipo Animal para un objeto de tipo Perro
         Animal miPerro = new Perro("Firulais");
-        miPerro.mostrarNombre(); // Salida: El nombre del animal es: Firulais
-        miPerro.hacerSonido();  // Salida: El perro ladra.
+        miPerro.mostrarNombre();
+        miPerro.hacerSonido();
 
         // Polimorfismo: Usando la referencia de tipo Animal para un objeto de tipo Gato
         Animal miGato = new Gato("Tommy");
-        miGato.mostrarNombre(); // Salida: El nombre del animal es: Tommy
-        miGato.hacerSonido();  // Salida: El gato maúlla.
+        miGato.mostrarNombre();
+        miGato.hacerSonido();
     }
 }
