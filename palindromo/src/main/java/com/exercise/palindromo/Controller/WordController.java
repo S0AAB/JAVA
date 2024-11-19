@@ -18,12 +18,21 @@ public class WordController {
         return "Hola, api funcionando";
     }
 
+    /**
+     * Endpoint para evaluar palabra desde variable de ruta
+     * @param word palabra a evaluar
+     * @return verdadero o falso segun la evaluacion
+     */
     @GetMapping("/word/{word}")
     public Boolean wordChecker(@PathVariable String word){
         return servicioPalindromo.esPalindromo(word);
     }
 
-
+    /**
+     * Endpoint para evaluar palabra usando el body
+     * @param requestPalabra parabra a evaluar traida desde el request
+     * @return mensaje de confirmacion
+     */
     @PostMapping("/word/body")
     public String wordCheckerBody(@RequestBody PostRequest requestPalabra){
 
