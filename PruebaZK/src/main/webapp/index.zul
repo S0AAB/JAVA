@@ -1,0 +1,12 @@
+<zk>
+	<style>
+		.z-window-header{
+			color:white;
+		}
+	</style>
+	<window  id="ventana" title="Ejemplo ZK" width="400px" apply="org.example.indexController" style="background-color:red;border-radius:20px;">
+		<label id="labelcito" value="Ingrese texto" />
+		<textbox id="cajaTexto" />
+		<button id="boton" label="Enviar" />
+	</window>
+</zk>
